@@ -9,8 +9,8 @@ export GIT_REPO_NAME=BTech-Project
 export GIT_BRANCH_NAME=master
 export GIT_USER=Sana-Shikalgar
 export GIT_EMAIL=sanasshikalgar@gmail.com
-export GITHUB_ACCESS_TOKEN=#access-token from github developer settings
-export GIT_USER_UPSTREAM=#your-user
+export GITHUB_ACCESS_TOKEN=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
+export GIT_USER_UPSTREAM=Sana
 
 
 ############################################################################
