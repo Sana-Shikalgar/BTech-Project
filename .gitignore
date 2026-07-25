@@ -205,3 +205,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Local-only archive of superseded project material (moved out of the
+# curated repo structure; kept locally, not tracked in git)
+archive_local/
