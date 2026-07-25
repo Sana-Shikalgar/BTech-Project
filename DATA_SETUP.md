@@ -9,15 +9,15 @@ notebooks in `dataset_pipeline/`, `models/`, `demo/`, and `experiments/` run as-
 Create a `data/` folder at the project root with this layout:
 
 ```
-data/
+data/ 
   raw/
     plantvillage_raw/
     new_plant_diseases_raw/
-    plantdoc_raw/            (optional — not used by any final model, kept for provenance only)
+    plantdoc_raw/                     (optional — not used by any final model, kept for provenance only)
   final/
     plantvillage_balanced/
     plantvillage_balanced_by_plant/   (a rejected alternative balancing approach — see
-                                        experiments/TUNING_NOTES.md; not used by any shipped model)
+                                       experiments/TUNING_NOTES.md; not used by any shipped model)
     new_plant_diseases_balanced/
 ```
 
