@@ -119,7 +119,9 @@ rate / early-stop delta pairing.
   (`PlantVillage/reduce lr/`, → `experiments/03_reduce_lr_before_cosine_annealing.ipynb`):
   **Val 99.14% / Test 99.15%**, early-stopping at epoch 37 — the single biggest jump in
   this phase, and in fact the **highest CNN+PlantVillage accuracy found anywhere in the
-  project**, including the eventual final config.
+  project**, including the eventual final config. An even lower lr=0.00001 was also tried
+  during this sweep but rejected — it didn't improve accuracy and took noticeably longer
+  to train, so 0.0001 was kept as the sweet spot of accuracy vs. training time.
 - **Final config** (`PlantVillage/ultimate (cosine-delta0001-lr0001)/`, now in
   `models/plantvillage/cnn/`): combines Cosine Annealing + lr=0.0001 + delta=0.0001 →
   **Val 98.5% / Test 98.24%** — a touch below the isolated "reduce lr" plateau run above.
@@ -131,6 +133,14 @@ rate / early-stop delta pairing.
   datasets**, which the standalone "reduce lr" plateau variant above was never tested
   against. Consistency across the full comparative study won out over a fractional
   single-model peak.
+- **Why batch size 16, not 32:** batch size wasn't tuned during the CNN-only phases above —
+  16 was simply carried over from the earliest baseline. It was later confirmed as the
+  right choice while training EfficientNetB0 and the Hybrid model: batch size 32 overloaded
+  the available GPU RAM on those larger architectures, making it *slower* in practice than
+  batch size 16 despite processing bigger batches. That GPU-RAM finding is also what
+  motivated tightening the early-stop delta from 0.001 to 0.0001 across the board, on top
+  of the reasoning already covered above (per the project's own tuning-summary notes,
+  `docs/reports/hyperparameter_tuning_summary.docx`).
 
 ## A data-quality caveat worth flagging
 
