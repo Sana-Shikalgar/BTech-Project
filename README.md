@@ -16,6 +16,21 @@ The full experimentation history, including the dead ends and not just what ship
 in `experiments/`, since a large part of the actual work was in that tuning process rather
 than the final numbers alone.
 
+## Datasets
+
+This project uses two public datasets, both derived from the original PlantVillage collection:
+
+**PlantVillage** — Arun Pandian, J., Geetharamani, G. (2019). *Data for: Identification of
+Plant Leaf Diseases Using a 9-layer Deep Convolutional Neural Network.* Mendeley Data, V1.
+https://doi.org/10.17632/tywbtsjrjv.1 (an augmented derivative of the original PlantVillage
+dataset: Hughes, D.P., Salathé, M. (2015). *An open access repository of images on plant
+health to enable the development of mobile disease diagnostics.* arXiv:1511.08060)
+
+**New Plant Diseases Dataset** — Bhattarai, S. (2018). *New Plant Diseases Dataset.* Kaggle.
+https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset
+
+See docs/reports/DATA_SETUP.md for download links and setup instructions.
+
 ## Tech Stack
 
 Pulled directly from `environment.yml`:
@@ -89,7 +104,7 @@ If you're setting this up from a fresh clone/fork:
 1. **Clone the repo and create the environment:**
    ```
    git clone <this-repo-url>
-   cd BTech-Project
+   cd crop-disease-classification
    conda env create -f environment.yml
    conda activate crop-disease-classification
    ```
