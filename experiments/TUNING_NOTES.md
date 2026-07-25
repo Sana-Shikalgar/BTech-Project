@@ -4,9 +4,23 @@ This traces how the Customized CNN's training recipe evolved from the first work
 prototype to the final configuration now in `models/plantvillage/cnn/` and
 `models/new_plant_diseases/cnn/`. All numbers below were pulled directly from each
 notebook's own printed training output and/or its paired `metrics_*.xlsx` classification
-report (validation/test sheets, not the train sheet). Three representative milestones from
+report (validation/test sheets, not the train sheet). Four representative milestones from
 this journey are copied into this folder; every other variant mentioned is still in its
 original location and untouched.
+
+## Phase 0 — earliest prototype (root-level `plant-disease-detection-plant_village.ipynb`)
+
+Before any of the phases below, there was a standalone Google Colab notebook
+(`plant-disease-detection-plant_village.ipynb`, → `experiments/00_early_prototype_colab.ipynb`)
+— PlantVillage only, mounting a dataset zip from Google Drive. It uses the same basic
+4-conv-block CNN architecture, trained for just **5 epochs** with plain `Adam` (no LR
+scheduler, no stratified split — just a shuffled `SubsetRandomSampler`). Results: **Train
+96.7% / Test 98.9% / Validation 98.7%**. These numbers are notably higher than the "first
+working baseline" in Phase 1 below despite near-identical settings (also 5 epochs, plain
+Adam) — likely just a favorable run and/or a different underlying data split, illustrating
+the same run-to-run instability discussed in Phase 1. This notebook also predates the
+project's later two-dataset scope decision and its own single-image inference loop (using
+`disease_info.csv`) is the ancestor of the pattern later reused in `demo/`.
 
 ## Phase 1 — first working baseline (`Trail 1/Jupyter Dataset 02/`, Jan-Feb 2025)
 
