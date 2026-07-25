@@ -31,6 +31,15 @@ version of PlantVillage (~61,500 images before the later re-balancing work).
 
 - **`D02-Original.ipynb`** (→ `experiments/01_baseline_first_working_cnn.ipynb`): the first
   working baseline. Train 87.13% / Test 84.24% / Val 83.75%.
+  **Note on its dataset path:** unlike every other notebook in this folder,
+  `01_baseline_first_working_cnn.ipynb` was intentionally left unmodified and still points at
+  its original hardcoded path (`../All_Datasets/Plant_leaf_diseases_dataset_with_augmentation/...`)
+  rather than the shared `dataset_config.py`/`DATA_ROOT` convention the other notebooks now use.
+  That path's depth doesn't cleanly match either its original folder (`Trail 1/Jupyter Dataset 02/`,
+  two levels deep) or its current one (`experiments/`, one level deep) in an obviously-correct way —
+  it may never have resolved correctly outside whatever working directory the original author's
+  Jupyter session happened to be launched from. Treat this notebook's dataset path as
+  **historical/unverified**, not something to run as-is.
 - A same-config rerun (`D02-Original-Copy1.ipynb`) landed at Test 80.98% / Val 79.02% —
   a ~3-5pp swing from the exact same settings, an early sign of the run-to-run instability
   the project's summary doc later describes as "fluctuating results."
